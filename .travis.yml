@@ -7,6 +7,6 @@ node_js:
   - 12
 
 before_install:
-  - docker build -t dev-travis -f Dockerfile .
+  - docker build -f Dockerfile -t dev-travis .
   - docker run -d -p 3000:8080 dev-travis
   - docker ps -a
