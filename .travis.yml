@@ -1,0 +1,14 @@
+language: node_js
+
+services:
+  - docker
+
+node_js:
+  - 12
+
+before_install:
+  - docker build -t dev-travis -f Dockerfile.dev .
+
+script:
+  - docker run -d -p 3000:8080 dev-travis
+  - docker ps -a
